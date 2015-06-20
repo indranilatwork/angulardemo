@@ -1,0 +1,6 @@
+<div ng-class="{'worksheet-widget': !widget.isEdit, 'worksheet-widget-edit': widget.isEdit}">
+     <h2 ng-hide="widget.isEdit">{{widget.title}}</h2>
+     <img class="image-widget" ng-hide="widget.isEdit" ng-src="{{widget.imageSrc}}" />
+         <input-widget></input-widget>
+    </div>
+

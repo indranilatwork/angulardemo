@@ -1,0 +1,15 @@
+<div>
+    Worksheet
+    <button ng-click="addWidget()">Add Wdiget</button>
+    <select ng-model="widgetType">
+        <option value="text">Text</option>
+        <option value="image">Image</option>
+    </select>
+</div>
+<div ng-repeat="widget in widgets" class="wz-widget">
+<!--    show widgets depending on the widget type -->
+<!--Inheriting parent controller function to the child directive-->
+  <text-widget ng-if="widget.type == 'text'" widget="widget" move-up-from-parent="moveUpWidget(widget)" move-down-from-parent="moveDownWidget(widget)" remove-from-parent="removeWidget(widget)"></text-widget>
+  <image-widget ng-if="widget.type == 'image'" widget="widget" move-up-from-parent="moveUpWidget(widget)" move-down-from-parent="moveDownWidget(widget)" remove-from-parent="removeWidget(widget)"></image-widget>   
+</div>
+

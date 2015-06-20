@@ -1,0 +1,14 @@
+{
+    "name": "Angular Exercise",
+    "version": "0.0.1",
+    "description": "Angular Exercise",
+    "authors": [
+    "innofied"
+    ],
+    "dependencies": {
+        "angular" : "",
+        "angular-ui-router" : ""
+    },
+    "license": "MIT",
+    "private": true
+}

@@ -1,0 +1,39 @@
+{
+    "name": "AngularExercise",
+    "version": "0.0.1",
+    "description": "Angular Exercise",
+    "main": "index.js",
+    "scripts": {
+        "start": "watchify -t partialify index.js -o build/bundle.js -v",
+        "bundle": "browserify -t partialify index.js -o build/bundle.js"
+    },
+    "dependencies": {
+        "watchify" : "",
+        "partialify" : "",
+        "browserify-shim": ""
+    },
+    "devDependencies": {
+         "watchify" : "",
+        "browserify": "^5.11.2"
+    },
+    "browser": {
+        "angular": "./bower_components/angular/angular.js",
+        "angularRouter" : "./bower_components/angular-ui-router/release/angular-ui-router.min.js"
+    },
+    "browserify-shim": {
+        "angular": {
+            "exports": "angular"
+        },
+      
+        "angularRouter": {
+            "depends": ["angular"],
+            "exports": "angularRouter"
+        }
+    },
+    "browserify": {
+        "transform": [
+        "browserify-shim"
+        ]
+    },
+    "author": "Indranil"
+}
