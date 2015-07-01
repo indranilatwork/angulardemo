@@ -1,11 +1,46 @@
 'use strict';
 module.exports = [
     '$scope',
-    function($scope) {
+    '$compile',
+    '$timeout',
+    function($scope,$compile,$timeout) {
         // Initializing the widgets with blank array
         $scope.widgets = [];
         // Initializing the widget type as text.
-        $scope.widgetType = "text";
+        $scope.widgetType = "text-widget";
+        // Initialize the events emitted from the child controllers.
+        $scope.$on('removeWidget', function(event, widget){
+            $scope.removeWidget(widget);
+        });
+        $scope.$on('moveUpWidget', function(event, widget){
+            $scope.moveUpWidget(widget);
+        });
+        $scope.$on('moveDownWidget', function(event, widget){
+            $scope.moveDownWidget(widget);
+        });
+        //Adding directives to the view depending on the type
+        $scope.attachDirective = function(widget) {
+            var html = '<'+widget.type+'></'+widget.type+'>',
+            widgetScope = $scope.$new(true), compiledHtml;
+            widgetScope.widget = widget;
+            //Compile the newly created directive with a new isolated scope
+            compiledHtml = $compile(html)(widgetScope);
+            $timeout(function(){
+                // Append the compiled directive to dom.
+                   $("#"+widget.updatedAt).html(compiledHtml);
+            },0)
+         
+            return;
+        }
+        $scope.$watch('widgets', function(newValue, oldValue) {
+            angular.forEach(newValue, function(value, key) {
+                // If the dom element for the directive does not exists add the directive in dom (Only works when widget is added)
+                if(!$("#"+value.updatedAt).length){
+                   $scope.attachDirective(value)  
+                }
+            });
+        },true);
+
         // This function will be called when the add widget button is clicked.
         // Adding a new widget to the widget list with blank data & editing mode.
         // If widget type is image the adding a new property imageSrc
@@ -14,12 +49,13 @@ module.exports = [
                 "isEdit" : true,
                 "type" : $scope.widgetType,
                 "title" : "",
-                "updatedAt" : ""  
+                "updatedAt" : new Date().getTime(),
+                "isAdd" : true
             };
-            if($scope.widgets.length && !$scope.widgets[0].updatedAt){
+            if($scope.widgets.length && $scope.widgets[0].isAdd){
                 $scope.widgets.splice(0,1);
             }
-            if(addedWidget.type === 'image'){
+            if(addedWidget.type === 'image-widget'){
                 addedWidget.imageSrc = ''; 
             }
             $scope.widgets.unshift(addedWidget);

@@ -3,7 +3,7 @@ window.name = "NG_DEFER_BOOTSTRAP!";
 //require all the library files
 require('angular');
 require('angularRouter');
-
+require('jquery');
 var App = require('./app/app');
 
 angular.element().ready(function() {

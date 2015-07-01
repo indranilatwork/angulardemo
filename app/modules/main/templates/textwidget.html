@@ -1,5 +1,17 @@
 <div ng-class="{'worksheet-widget': !widget.isEdit, 'worksheet-widget-edit': widget.isEdit}">
-     <h2 ng-hide="widget.isEdit">{{widget.title}}</h2>
-         <input-widget></input-widget>
+     <h2 ng-if="!widget.isEdit">{{widget.title}}</h2>
+<!--         show textfield if editing mode is active    -->
+    <div ng-if="widget.isEdit">
+        <input type="text" ng-model="widget.title" placeholder="Title"></input>
     </div>
+     <div>
+<!--       show buttons depending on the editing mode & non editing mode of the widget-->
+       <button ng-if="widget.isEdit" ng-click="saveWidget()">Save Wdiget</button>
+       <button ng-if="widget.isEdit" ng-click="cancelWidget()">Cancel</button>
+       <button ng-if="!widget.isEdit" ng-click="editWidget()">Edit Wdiget</button>
+       <button ng-if="!widget.isEdit" ng-click="deleteWidget()">Remove Wdiget</button>
+       <button ng-if="!widget.isEdit" ng-click="moveUp()">Move Up</button>
+       <button ng-if="!widget.isEdit" ng-click="moveDown()">Move Down</button>
+     </div>
+</div>
 
