@@ -18,8 +18,7 @@
     },
     "browser": {
         "angular": "./bower_components/angular/angular.js",
-        "angularRouter" : "./bower_components/angular-ui-router/release/angular-ui-router.min.js",
-        "jquery": "./bower_components/jquery/dist/jquery.js"
+        "angularRouter" : "./bower_components/angular-ui-router/release/angular-ui-router.min.js"
     },
     "browserify-shim": {
         "angular": {
@@ -29,9 +28,6 @@
         "angularRouter": {
             "depends": ["angular"],
             "exports": "angularRouter"
-        },
-         "jquery": {
-            "exports": "$"
         }
     },
     "browserify": {

@@ -6,6 +6,7 @@
         <option value="image-widget">Image</option>
     </select>
 </div>
-<div ng-repeat="widget in widgets" class="wz-widget" id="{{widget.updatedAt}}">
+<div ng-repeat="widget in widgets" class="wz-widget">
+    <widget-wrapper widget="widget"></widget-wrapper>
 </div>
 
