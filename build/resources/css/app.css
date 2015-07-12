@@ -10,74 +10,91 @@
 /*lib css*/
 
 .image-widget{
-    width: 100px;
+    width: 100%;
+
+}
+.image-wrapper{
+    position: relative;
+}
+.tag-wrapper{
+    padding: 7px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.tag-input{
+    border-radius: 3px;
+    border: 1px solid #777;
+    padding: 5px;
+}
+.image-tag{
+    position: absolute;
 }
 .worksheet {
-	display: block;
-	padding: 20px 20px 20px 20px;
+    display: block;
+    padding: 20px 20px 20px 20px;
 }
 
 .worksheet div{
-	font: inherit;
+    font: inherit;
 }
 
 .worksheet h1{
-	font: inherit;
+    font: inherit;
 }
 
 .worksheet h2{
-	font: inherit;
-	text-align: center;
+    font: inherit;
+    text-align: center;
 }
 
 .worksheet-widget{
-	border: 1px solid transparent;
-	border-radius: 4px;
-	display: block;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    display: block;
 }
 
 .worksheet-widget:hover{
-	border-color: blue;
-	background-color:rgb(226, 226, 226);
+    border-color: blue;
+    background-color:rgb(226, 226, 226);
 }
 
 
 .text-widget{
-	white-space: pre-wrap;
+    white-space: pre-wrap;
 }
 
 .header{
-	background-color:#414141;
+    background-color:#414141;
 }
 
 .header-logo{
-	color:#FFFFFF;
-	font-family: 'MS Courier New';
-	font-size: xx-large;
-	padding-right: 20px;
+    color:#FFFFFF;
+    font-family: 'MS Courier New';
+    font-size: xx-large;
+    padding-right: 20px;
 }
 
 .header-text{
-	color:#FFFFFF;
-	font-family: 'Courier';
+    color:#FFFFFF;
+    font-family: 'Courier';
 }
 
 .footer{
-	clear:both;
-	
+    clear:both;
+
 }
 
 .editor-content-container{
-	width: 80%;
-	float:left;
-	height: 95%;
-	display: inline-block;
+    width: 80%;
+    float:left;
+    height: 95%;
+    display: inline-block;
 }
 
 .editor-nav{
-	width: 20%;
-	float: right;
-	display: inline-block;
+    width: 20%;
+    float: right;
+    display: inline-block;
 }
 
 .editor-nav ul
@@ -86,41 +103,41 @@
 }
 
 .plugin-title{
-	content:url("/images/tmp-title.png");
-	padding-top: 10px;
+    content:url("/images/tmp-title.png");
+    padding-top: 10px;
 }
 
 .plugin-text{
-	content:url("/images/tmp-text.png");
-	padding-top: 10px;
+    content:url("/images/tmp-text.png");
+    padding-top: 10px;
 }
 
 .plugin-image{
-	content:url("/images/tmp-image.png");
+    content:url("/images/tmp-image.png");
 }
 
 .plugin-mu-choice-question{
-	content:url("/images/tmp-mu-choice.png");	
+    content:url("/images/tmp-mu-choice.png");	
 }
 
 .ws-mu-choice-option-text{
-	padding-left: 10px;
+    padding-left: 10px;
 }
 
 .mu-choice-widget{
-	white-space: pre-wrap;
+    white-space: pre-wrap;
 }
 
 .edit-button-bar{
-	background-color: grey;
+    background-color: grey;
 }
 
 .page-wrapper{
-	margin-right: auto;
-	margin-left: auto;
-	width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1000px;
 }
 
 .page-content{
-	
+
 }

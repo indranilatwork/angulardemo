@@ -2,7 +2,7 @@
 module.exports = [
     '$scope',
     function($scope) {
-        
+        $scope.tags = [];
         // This function will be called user saves a new widget or saves a widget after edit.
         // This function will check for the empty field otherwise add it.
         $scope.saveWidget = function(){
@@ -41,6 +41,31 @@ module.exports = [
         // This will emit a event to the parent controller  
         $scope.moveDown = function(){
             $scope.$emit('moveDownWidget', $scope.widget);  
+        }
+        $scope.tagImage = function(e){
+            
+            if($scope.widget.editTag){
+            $scope.tags.push({
+                "positionX" :((e.offsetX/$(e.currentTarget).width())*100)+"%",
+                 "positionY" : ((e.offsetY/$(e.currentTarget).height())*100)+"%",
+                 "text" : "",
+                 "addedOn" : new Date().getTime()
+            })
+            }
+        },
+        $scope.editTag = function(){
+            $scope.widget.editTag = true;
+        }
+         $scope.saveTag = function(){
+            $scope.widget.editTag = false;
+        }
+        $scope.removeTag = function(removedTag){
+            angular.forEach($scope.tags,function(tag,index){
+                if(tag.addedOn === removedTag.addedOn){
+                    $scope.tags.splice(index,1);
+                    return false;
+                }
+            })
         }
   
     }];

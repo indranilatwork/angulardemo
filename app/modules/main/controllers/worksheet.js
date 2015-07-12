@@ -5,7 +5,15 @@ module.exports = [
     '$timeout',
     function($scope,$compile,$timeout) {
         // Initializing the widgets with blank array
-        $scope.widgets = [];
+        $scope.widgets = [{
+                "isEdit" : false,
+                "type" : "image-widget",
+                "title" : "qqq",
+                "updatedAt" : new Date().getTime(),
+                "isAdd" : false,
+                "editTag" : true,
+                "imageSrc" : "http://cdn.wonderfulengineering.com/wp-content/uploads/2014/07/HD-landscape-Photographs-798x350.png"
+        }];
         // Initializing the widget type as text.
         $scope.widgetType = "text-widget";
         // Initialize the events emitted from the child controllers.
@@ -35,6 +43,7 @@ module.exports = [
             }
             if(addedWidget.type === 'image-widget'){
                 addedWidget.imageSrc = ''; 
+                addedWidget.editTag = true;
             }
             $scope.widgets.unshift(addedWidget);
         }

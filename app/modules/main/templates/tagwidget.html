@@ -1,0 +1,7 @@
+<div class="tag-wrapper">
+  <input ng-if="edit" class="tag-input" type="text" ng-model="tag.text" placeholder="Tag"></input>
+  <span ng-if="edit" ng-click="parentRemoveTag(tag)">X</span>
+  <span ng-if="!edit">{{tag.text}}</span>
+</div>
+
+
